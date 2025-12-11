@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+export const runtime = 'edge';
+
 const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
 
 export async function GET(request: NextRequest) {
