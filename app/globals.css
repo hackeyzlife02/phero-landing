@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Spacing */
+  --spacing-xxs: 0.125rem;   /* 2px */
+  --spacing-xs: 0.25rem;     /* 4px */
+  --spacing-sm: 0.5rem;      /* 8px */
+  --spacing-md: 0.75rem;     /* 12px */
+  --spacing-lg: 1rem;        /* 16px */
+  --spacing-xl: 1.5rem;      /* 24px */
+  --spacing-xxl: 2rem;       /* 32px */
+  --spacing-xxxl: 3rem;      /* 48px */
+  --spacing-jumbo: 4rem;     /* 64px */
+
+  /* Colors - Brand (PHERO Design System v3.0) */
+  --color-brand-red: #9A1B1B;         /* Red - Primary brand color */
+  --color-brand-purple: #7B2D9E;      /* Purple - Gradient end */
+  --color-brand-primary: #9A1B1B;     /* Red - Primary CTA (updated) */
+  --color-brand-accent: #9A1B1B;      /* Red - Accent */
+  --color-brand-accent-dark: #7A1515; /* Red Dark - Emphasis/hover */
+
+  /* Colors - Brand Text (WCAG AA accessible on black, ≥3:1 for large text) */
+  --color-brand-red-text: #C23B3B;    /* Red - Accessible text (~4:1 on black) */
+  --color-brand-purple-text: #9B4DCE; /* Purple - Accessible text (~4.4:1 on black) */
+
+  /* Colors - Text */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: rgba(255, 255, 255, 0.6);
+  --color-text-tertiary: rgba(255, 255, 255, 0.5);
+  --color-text-muted: rgba(255, 255, 255, 0.4);
+  --color-text-inverse: #000000;
+  --color-text-inactive: #2A2A2A;
+
+  /* Colors - Background */
+  --color-bg: #000000;                /* Pure black background */
+  --color-surface: #000000;           /* Surface (same as bg) */
+  --color-surface-alt: #0F0F10;       /* Slightly lighter for elevation */
+
+  /* Colors - Status */
+  --color-success: #22C55E;           /* Green - Online status */
+  --color-warning: #FFC857;
+  --color-error: #9A1B1B;             /* Red */
+  --color-info: #9A1B1B;              /* Red */
+
+  /* Colors - Interactive */
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-light: rgba(255, 255, 255, 0.08);
+  --color-hover: rgba(255, 255, 255, 0.08);
+  --color-focus: #9A1B1B;             /* Red for focus states */
+
+  /* Colors - Tags/Chips */
+  --color-tag-bg: #D9D9D9;            /* Tag backgrounds */
+  --color-tag-text: #000000;
+
+  /* Border Radius */
+  --radius-none: 0;
+  --radius-sm: 0.25rem;      /* 4px */
+  --radius-md: 0.5rem;       /* 8px */
+  --radius-lg: 0.75rem;      /* 12px */
+  --radius-xl: 1rem;         /* 16px */
+  --radius-2xl: 1.25rem;     /* 20px */
+  --radius-3xl: 1.5rem;      /* 24px */
+  --radius-full: 9999px;
+
+  /* Elevation (Box Shadows) */
+  --elevation-z1: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --elevation-z2: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --elevation-z3: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --elevation-z4: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Motion */
+  --motion-fast: 150ms;
+  --motion-normal: 250ms;
+  --motion-slow: 350ms;
+}
+
+/* Selection styling */
+::selection {
+  background: var(--color-brand-purple);
+  color: var(--color-text-primary);
+}
+
+body {
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Landing page particle animation */
+@keyframes particleDrift {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.4;
+  }
+  95% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-50px) translateX(30px);
+    opacity: 0;
+  }
+}
+
+/* Pulse animation for status dots */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Hide scrollbar for carousel */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
