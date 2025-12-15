@@ -8,6 +8,9 @@ node_modules/
 out/
 build/
 
+# OpenNext build output (contains env vars)
+.open-next/
+
 # misc
 .DS_Store
 *.pem
