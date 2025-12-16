@@ -5,7 +5,6 @@ import { getWaitlistConfirmationEmail } from '@/lib/emails/waitlist-confirmation
 import { getWaitlistAdminNotificationEmail } from '@/lib/emails/waitlist-admin-notification';
 
 // Cloudflare Workers compatible
-export const runtime = 'edge';
 
 const ADMIN_EMAILS = ['sali@pheroapp.com', 'stylistonstandby@gmail.com'];
 const FROM_EMAIL = 'PHERO <no-reply@mail.pheroapp.com>';

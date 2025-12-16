@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export const runtime = 'edge';
 
 // Verify a signed token and code
 async function verifyToken(token: string, providedCode: string, email: string): Promise<{ valid: boolean; error?: string }> {

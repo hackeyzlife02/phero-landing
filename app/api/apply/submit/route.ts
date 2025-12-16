@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { APP_NAME, APP_PROGRAM_NAME } from '@/lib/constants/app';
 
-export const runtime = 'edge';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
