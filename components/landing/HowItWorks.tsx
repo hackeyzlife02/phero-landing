@@ -4,7 +4,7 @@ const steps = [
   {
     num: '1',
     title: 'Find your Style Pro',
-    description: 'Browse people with taste you trust. Find someone whose eye matches yours.',
+    description: 'Browse people with taste you trust. Pick the one whose eye matches yours.',
   },
   {
     num: '2',
@@ -14,7 +14,7 @@ const steps = [
   {
     num: '3',
     title: 'Walk in ready',
-    description: 'Get the look locked. Leave certain.',
+    description: 'Lock the look. Leave certain.',
   },
 ];
 
@@ -25,7 +25,7 @@ export function HowItWorks() {
         {/* Header */}
         <div className="mb-16">
           <div className="font-body text-[10px] font-semibold tracking-[0.25em] uppercase text-white/50 mb-5">
-            How it works
+            How It Works
           </div>
           <h2 className="font-headline text-[clamp(32px,4.5vw,48px)] font-semibold tracking-[-0.02em]">
             Fast. Personal.{' '}

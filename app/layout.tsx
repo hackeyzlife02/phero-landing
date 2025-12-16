@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Space_Grotesk, Inter, Instrument_Serif } from 'next/font/google';
 import './globals.css';
 import { Providers } from './providers';
@@ -28,6 +28,12 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   title: 'PHERO — Never Second-Guess Again',
   description: 'AI-powered personal styling that learns your taste.',
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({

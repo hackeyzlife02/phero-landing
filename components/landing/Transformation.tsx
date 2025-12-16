@@ -40,12 +40,15 @@ export function Transformation() {
       <div className="max-w-[1100px] mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
+          <div className="font-body text-[10px] font-semibold tracking-[0.25em] uppercase text-white/40 mb-4">
+            The Switch
+          </div>
           <h2 className="font-headline text-[clamp(32px,4.5vw,52px)] font-semibold leading-[1.1] tracking-[-0.02em] mb-4">
             First impressions happen{' '}
             <em className="font-serif italic font-normal">before you speak.</em>
           </h2>
           <p className="font-body text-base text-white/50 max-w-[480px] mx-auto leading-[1.7]">
-            You&apos;ve tried on three outfits. Nothing feels right. Your friend says &quot;looks fine.&quot; That doesn&apos;t help.
+            You&apos;ve tried three outfits. Nothing feels right. Your friend texts &quot;looks fine.&quot; That doesn&apos;t help.
           </p>
         </div>
 

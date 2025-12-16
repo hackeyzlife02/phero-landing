@@ -4,8 +4,13 @@
   "name": "phero-landing",
   "compatibility_date": "2024-09-23",
   "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
-  }
+  },
+  "routes": [
+    { "pattern": "pheroapp.com/*", "zone_name": "pheroapp.com" },
+    { "pattern": "www.pheroapp.com/*", "zone_name": "pheroapp.com" }
+  ]
 }

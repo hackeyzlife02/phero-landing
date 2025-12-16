@@ -12,12 +12,6 @@ export function Footer() {
 
         <div className="flex gap-8">
           <Link
-            href="mailto:hello@pheroapp.com"
-            className="text-white/35 font-body text-[13px] font-medium transition-colors hover:text-white"
-          >
-            Contact
-          </Link>
-          <Link
             href="/privacy"
             className="text-white/35 font-body text-[13px] font-medium transition-colors hover:text-white"
           >
@@ -28,14 +22,6 @@ export function Footer() {
             className="text-white/35 font-body text-[13px] font-medium transition-colors hover:text-white"
           >
             Terms
-          </Link>
-          <Link
-            href="https://instagram.com/pheroapp"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white/35 font-body text-[13px] font-medium transition-colors hover:text-white"
-          >
-            Instagram
           </Link>
         </div>
 

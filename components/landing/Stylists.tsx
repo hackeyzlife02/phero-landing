@@ -14,7 +14,7 @@ const perks: Perk[] = [
   {
     icon: <Clock className="w-5 h-5" strokeWidth={1.75} />,
     title: 'On Your Terms',
-    description: 'Work anytime, anywhere'
+    description: 'Work when and where you want'
   },
   {
     icon: <DollarSign className="w-5 h-5" strokeWidth={1.75} />,
@@ -24,12 +24,12 @@ const perks: Perk[] = [
   {
     icon: <RefreshCw className="w-5 h-5" strokeWidth={1.75} />,
     title: 'Your People',
-    description: 'Build a following that returns'
+    description: 'Regulars who come back to you'
   },
   {
     icon: <Star className="w-5 h-5" strokeWidth={1.75} />,
     title: 'Your Brand',
-    description: 'Let your style speak'
+    description: 'Build a name, not just a handle'
   },
 ];
 
@@ -85,7 +85,7 @@ export function Stylists() {
 
           <h2 className="font-headline text-[clamp(28px,3.5vw,40px)] font-semibold leading-[1.15] tracking-[-0.02em] mb-4">
             <span className="block">You have the eye.</span>
-            <em className="block font-serif italic font-normal bg-gradient-brand-text bg-clip-text text-transparent">
+            <em className="block font-serif italic font-normal bg-gradient-brand-text-light bg-clip-text text-transparent">
               Get paid for it.
             </em>
           </h2>
