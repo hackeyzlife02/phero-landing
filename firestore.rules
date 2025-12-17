@@ -8,13 +8,13 @@ service cloud.firestore {
       // Allow reads (needed for duplicate checking)
       allow read: if true;
 
-      // Allow writes with valid data structure
+      // Allow writes with valid data structure (name, age, city, state are optional)
       allow create, update: if
         request.resource.data.email is string &&
-        request.resource.data.name is string &&
-        request.resource.data.age is string &&
-        request.resource.data.city is string &&
-        request.resource.data.state is string;
+        (request.resource.data.name is string || request.resource.data.name == null) &&
+        (request.resource.data.age is string || request.resource.data.age == null) &&
+        (request.resource.data.city is string || request.resource.data.city == null) &&
+        (request.resource.data.state is string || request.resource.data.state == null);
     }
 
     // Deny everything else by default
