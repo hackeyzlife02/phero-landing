@@ -7,7 +7,7 @@ import { ArrowLeft, ChevronDown } from 'lucide-react';
 const faqs = [
   {
     question: 'What is PHERO?',
-    answer: 'PHERO is a platform for people who care how they show up. Before a date or any high-stakes plan, you book a short session with a Style Pro you trust. Not for advice. For clarity. So you walk in certain, not second-guessing.',
+    answer: 'PHERO is for people who want to walk in ready — not just looking right, but feeling it. Before a date, you book a short session with a Style Pro you trust. They help you get out of your head, settle the doubt, and show up like you belong there. By the time you walk in, you\'re not hoping it goes well. You\'re expecting it to.',
   },
   {
     question: 'Is this a dating app?',
