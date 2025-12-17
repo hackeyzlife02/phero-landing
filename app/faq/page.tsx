@@ -14,6 +14,10 @@ const faqs = [
     answer: 'No. PHERO does not match you with people. It supports how you present yourself when it matters. Dating is the context. Presence is the point.',
   },
   {
+    question: 'Is this a styling app?',
+    answer: 'It\'s more than that. First dates come with a lot — am I interesting enough, will they like me, what if I mess this up. Your Style Pro is there for all of it. Yes, they help you look right. But they also help you feel ready. By the time you walk in, the doubt is quiet. You\'re not hoping it goes well. You\'re expecting it to.',
+  },
+  {
     question: 'What actually happens?',
     answer: 'You book a session before you go out. Over text or video, your Style Pro helps you decide, refine, and commit so you know exactly how you\'re walking in.',
   },
