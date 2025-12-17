@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getResend } from '@/lib/resend';
-import { APP_NAME } from '@/lib/constants/app';
 
 function generateCode(): string {
   return Math.floor(100000 + Math.random() * 900000).toString();
@@ -53,13 +52,13 @@ export async function POST(request: NextRequest) {
     const token = await createVerificationToken(email, code);
 
     // Send email via Resend
-    const fromEmail = process.env.RESEND_FROM_EMAIL || `${APP_NAME} <noreply@mail.stylistonstandby.com>`;
+    const fromEmail = 'PHERO <no-reply@mail.pheroapp.com>';
     const resend = getResend();
 
     const { error } = await resend.emails.send({
       from: fromEmail,
       to: email,
-      subject: `Your ${APP_NAME} Verification Code`,
+      subject: 'Your PHERO Verification Code',
       html: `
         <!DOCTYPE html>
         <html>
@@ -75,7 +74,7 @@ export async function POST(request: NextRequest) {
                     <tr>
                       <td style="padding: 40px;">
                         <h1 style="color: #111827; font-size: 24px; font-weight: 700; margin: 0 0 8px; text-align: center;">
-                          ${APP_NAME}
+                          PHERO
                         </h1>
                         <p style="color: #6b7280; font-size: 14px; margin: 0 0 32px; text-align: center;">
                           Email Verification
