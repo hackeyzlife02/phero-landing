@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import { getResend } from '@/lib/resend';
 import { APP_NAME } from '@/lib/constants/app';
-
-
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 function generateCode(): string {
   return Math.floor(100000 + Math.random() * 900000).toString();
@@ -57,6 +54,7 @@ export async function POST(request: NextRequest) {
 
     // Send email via Resend
     const fromEmail = process.env.RESEND_FROM_EMAIL || `${APP_NAME} <noreply@mail.stylistonstandby.com>`;
+    const resend = getResend();
 
     const { error } = await resend.emails.send({
       from: fromEmail,
