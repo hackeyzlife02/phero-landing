@@ -36,11 +36,11 @@ function GalleryHero() {
   const reveal = useReveal();
 
   const messages: Message[] = [
-    { type: 'pro', text: 'Tell me about her.' },
+    { type: 'pro', text: 'Tell me about her!' },
     { type: 'user', text: "She's into art, works at a gallery in Chelsea. Kind of intimidating." },
     { type: 'pro', text: 'So you need to look like you have taste, without trying too hard.' },
     { type: 'pro', text: 'Love the shirt. Lose the jacket. White sneakers, not boots.' },
-    { type: 'user', text: 'Done.' },
+    { type: 'user', text: 'Done!' },
     { type: 'pro', text: 'Now you look like you belong there. Go.' },
   ];
 
