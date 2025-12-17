@@ -1,54 +1,70 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
+
 const steps = [
   {
     num: '1',
-    title: 'Find your Style Pro',
-    description: 'Browse people with taste you trust. Pick the one whose eye matches yours.',
+    title: 'Pick someone with the eye',
+    description: 'Browse Style Pros. Find yours.',
   },
   {
     num: '2',
-    title: 'Book before your date',
-    description: '$45. 30 minutes. Text or video. Right before you walk out.',
+    title: '30 minutes before you go',
+    description: '$45. Text or video.',
   },
   {
     num: '3',
     title: 'Walk in ready',
-    description: 'Lock the look. Leave certain.',
+    description: 'No second-guessing.',
   },
 ];
 
 export function HowItWorks() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(element);
+        }
+      },
+      { threshold: 0.12 }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="how" className="py-28 md:py-36 px-7 md:px-[72px] bg-black">
-      <div className="max-w-[1100px] mx-auto">
-        {/* Header */}
-        <div className="mb-16">
-          <div className="font-body text-[10px] font-semibold tracking-[0.25em] uppercase text-white/50 mb-5">
-            How It Works
-          </div>
-          <h2 className="font-headline text-[clamp(32px,4.5vw,48px)] font-semibold tracking-[-0.02em]">
-            Fast. Personal.{' '}
-            <em className="font-serif italic font-normal bg-gradient-brand-text bg-clip-text text-transparent">
-              Precise.
-            </em>
-          </h2>
+    <section
+      ref={ref}
+      id="how"
+      className={`py-20 md:py-[100px] px-4 sm:px-6 md:px-12 border-t border-white/[0.04] transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+      }`}
+    >
+      <div className="max-w-[800px] mx-auto">
+        <div className="font-headline text-[10px] font-semibold tracking-[0.2em] uppercase text-white/30 text-center mb-12">
+          How it works
         </div>
 
-        {/* Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {steps.map((step) => (
-            <div
-              key={step.num}
-              className="bg-white/[0.02] border border-white/[0.06] rounded-[20px] p-8 md:p-10 transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/[0.04] hover:border-brand-red/35 hover:-translate-y-1.5 group"
-            >
-              <div className="font-headline text-[44px] font-bold bg-gradient-brand bg-clip-text text-transparent opacity-50 mb-5 leading-none group-hover:opacity-80 transition-opacity">
+            <div key={step.num} className="text-center">
+              <div className="font-serif text-4xl italic text-white/35 mb-4">
                 {step.num}
               </div>
-              <h3 className="font-headline text-lg font-semibold mb-3">
+              <h4 className="font-headline text-[15px] font-semibold mb-2">
                 {step.title}
-              </h3>
-              <p className="font-body text-sm text-white/50 leading-[1.7]">
+              </h4>
+              <p className="font-headline text-sm text-white/40">
                 {step.description}
               </p>
             </div>

@@ -5,6 +5,14 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      'xs': '400px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       fontFamily: {
         sans: ['var(--font-body)', 'system-ui', 'sans-serif'],
@@ -35,6 +43,18 @@ module.exports = {
           '0%, 100%': { opacity: '1' },
           '50%': { opacity: '0.5' },
         },
+        drift1: {
+          '0%, 100%': { transform: 'translate(0, 0)' },
+          '50%': { transform: 'translate(30px, -20px)' },
+        },
+        drift2: {
+          '0%, 100%': { transform: 'translate(0, 0)' },
+          '50%': { transform: 'translate(-25px, 15px)' },
+        },
+        reveal: {
+          '0%': { opacity: '0', transform: 'translateY(12px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
       },
       animation: {
         glowPulse: 'glowPulse 4s ease-in-out infinite',
@@ -42,6 +62,9 @@ module.exports = {
         shimmer: 'shimmer 1.8s linear infinite',
         particleDrift: 'particleDrift 20s linear infinite',
         pulse: 'pulse 2s ease-in-out infinite',
+        drift1: 'drift1 20s ease-in-out infinite',
+        drift2: 'drift2 25s ease-in-out infinite',
+        reveal: 'reveal 0.8s ease forwards',
       },
       spacing: {
         'xxs': 'var(--spacing-xxs)',

@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
       relationshipStatus = '',
     } = body as WaitlistSubmission;
 
-    // Validate required fields
+    // Validate required fields (only email is required)
     const trimmedEmail = email.trim();
     const trimmedName = name.trim();
 
@@ -45,27 +45,6 @@ export async function POST(request: NextRequest) {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
       return NextResponse.json(
         { error: 'Please enter a valid email address' },
-        { status: 400 }
-      );
-    }
-
-    if (!trimmedName) {
-      return NextResponse.json(
-        { error: 'Name is required' },
-        { status: 400 }
-      );
-    }
-
-    if (!age) {
-      return NextResponse.json(
-        { error: 'Age range is required' },
-        { status: 400 }
-      );
-    }
-
-    if (!city || !state) {
-      return NextResponse.json(
-        { error: 'City is required' },
         { status: 400 }
       );
     }
@@ -84,10 +63,10 @@ export async function POST(request: NextRequest) {
 
     const documentData: Record<string, unknown> = {
       email: normalizedEmail,
-      name: trimmedName,
-      age,
-      city,
-      state,
+      name: trimmedName || null,
+      age: age || null,
+      city: city || null,
+      state: state || null,
       relationshipStatus: relationshipStatus || null,
       updatedAt: now,
       source: 'landing_page',

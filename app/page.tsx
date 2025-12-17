@@ -1,7 +1,8 @@
 import { Nav } from '@/components/landing/Nav';
 import { Hero } from '@/components/landing/Hero';
-import { Transformation } from '@/components/landing/Transformation';
-import { Receipts } from '@/components/landing/Receipts';
+import { Grounding } from '@/components/landing/Grounding';
+import { Gallery } from '@/components/landing/Gallery';
+import { Interruption } from '@/components/landing/Interruption';
 import { HowItWorks } from '@/components/landing/HowItWorks';
 import { Stylists } from '@/components/landing/Stylists';
 import { WaitlistForm } from '@/components/landing/WaitlistForm';
@@ -12,8 +13,9 @@ export default function LandingPage() {
     <main className="min-h-screen bg-black text-white">
       <Nav />
       <Hero />
-      <Transformation />
-      <Receipts />
+      <Grounding />
+      <Gallery />
+      <Interruption />
       <HowItWorks />
       <Stylists />
       <WaitlistForm />

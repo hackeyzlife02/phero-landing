@@ -2,111 +2,51 @@
 
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { Particles } from './Particles';
-import { TonightCard } from './TonightCard';
-import { useIOS26Safari } from '@/lib/useIOS26';
 
 export function Hero() {
-  const isIOS26Safari = useIOS26Safari();
-
   return (
-    <section className="relative">
-      {/* Mobile: Single column with gradient, full viewport height */}
-      <div className="lg:hidden bg-gradient-brand relative min-h-screen min-h-[100svh] flex flex-col">
-        {/* Darker gradient overlay at top for headline contrast */}
-        <div className="absolute inset-x-0 top-0 h-[40%] bg-gradient-to-b from-black/25 to-transparent pointer-events-none" />
-        {/* iOS 26 Safari has a floating address bar that requires extra bottom padding */}
+    <section className="min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 md:px-12 pt-[100px] md:pt-[120px] pb-[60px] relative overflow-hidden">
+      {/* Pheromone field background */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        {/* Red orb */}
         <div
-          className={`flex flex-col justify-center flex-1 px-7 pt-28 relative z-10 ${
-            isIOS26Safari
-              ? 'pb-[calc(5rem+env(safe-area-inset-bottom))]'
-              : 'pb-[calc(3rem+env(safe-area-inset-bottom))]'
-          }`}
-        >
-          <div className="font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white/40 mb-8">
-            Limited Early Access
-          </div>
-
-          <h1 className="font-headline text-5xl md:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] mb-6">
-            Never <em className="font-serif italic font-normal">second-guess</em> again.
-          </h1>
-
-          <p className="font-body text-[17px] text-white/60 max-w-[400px] leading-[1.7] mb-3">
-            Connect with a Style Pro before your next date. 30 minutes. Walk in ready.
-          </p>
-
-          <p className="font-body text-sm text-white/40 mb-9">
-            $45 &middot; 30 minutes &middot; Text or video
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3.5">
-            {/* Primary CTA - white on gradient bg per HIG */}
-            <Link
-              href="#waitlist"
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-[15px] bg-white text-[#111111] font-body text-sm font-semibold rounded-full transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 shadow-[0_2px_8px_rgba(0,0,0,0.24)] group"
-            >
-              Get Early Access
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-            </Link>
-
-            {/* Secondary CTA - outlined white border */}
-            <Link
-              href="#stylists"
-              className="inline-flex items-center justify-center px-9 py-[18px] bg-transparent text-white font-body text-sm font-medium border-2 border-white/90 rounded-full transition-all hover:bg-white/10"
-            >
-              I&apos;m a Style Pro
-            </Link>
-          </div>
-        </div>
+          className="absolute top-[20%] left-[30%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(154,27,27,0.08)_0%,transparent_70%)] blur-[80px] animate-drift1"
+        />
+        {/* Purple orb */}
+        <div
+          className="absolute bottom-[20%] right-[25%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(123,45,158,0.06)_0%,transparent_70%)] blur-[100px] animate-drift2"
+        />
       </div>
 
-      {/* Desktop: Two column grid - Content LEFT (black), Visual RIGHT (gradient) */}
-      <div className="hidden lg:grid grid-cols-[1.1fr_0.9fr] min-h-screen">
-        {/* LEFT: Content on black background */}
-        <div className="flex flex-col justify-center px-[72px] py-24 bg-black">
-          <div className="font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white/40 mb-8">
-            Limited Early Access
-          </div>
+      {/* Content */}
+      <div className="relative z-10">
+        <p className="font-headline text-[10px] font-semibold tracking-[0.25em] uppercase text-white/35 mb-6">
+          Limited Early Access
+        </p>
 
-          <h1 className="font-headline text-7xl font-semibold leading-[1.05] tracking-[-0.03em] mb-6">
-            Never <em className="font-serif italic font-normal">second-guess</em> again.
-          </h1>
+        <h1 className="font-headline text-[clamp(48px,9vw,96px)] font-medium leading-none tracking-[-0.04em] mb-6">
+          Never <em className="font-serif italic font-normal">second-guess</em> again.
+        </h1>
 
-          <p className="font-body text-[17px] text-white/60 max-w-[400px] leading-[1.7] mb-3">
-            Connect with a Style Pro before your next date. 30 minutes. Walk in ready.
-          </p>
+        <p className="font-headline text-[17px] text-white/50 mb-10 max-w-[400px] mx-auto leading-relaxed">
+          Connect with a Style Pro before your next date.
+        </p>
 
-          <p className="font-body text-sm text-white/40 mb-9">
-            $45 &middot; 30 minutes &middot; Text or video
-          </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            href="#waitlist"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-brand text-white font-headline text-sm font-semibold rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(154,27,27,0.25)] group"
+          >
+            Get Early Access
+            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" strokeWidth={2.5} />
+          </Link>
 
-          <div className="flex gap-3.5">
-            {/* Primary CTA - gradient button on black bg */}
-            <Link
-              href="#waitlist"
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-[15px] bg-gradient-brand text-white font-body text-sm font-semibold rounded-full transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:shadow-gradient group"
-            >
-              Get Early Access
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-            </Link>
-
-            {/* Secondary CTA - ghost button */}
-            <Link
-              href="#stylists"
-              className="inline-flex items-center justify-center px-9 py-[18px] bg-transparent text-white font-body text-sm font-medium border border-white/15 rounded-full transition-all hover:bg-white/5 hover:border-white/30"
-            >
-              I&apos;m a Style Pro
-            </Link>
-          </div>
-        </div>
-
-        {/* RIGHT: Visual on gradient background */}
-        <div className="relative overflow-hidden flex items-center justify-center p-16 bg-gradient-brand">
-          {/* Radial highlight */}
-          <div className="absolute -top-[40%] -right-[40%] w-[80%] h-[80%] bg-[radial-gradient(circle,rgba(255,255,255,0.08)_0%,transparent_60%)]" />
-
-          <Particles />
-          <TonightCard />
+          <Link
+            href="#stylists"
+            className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white font-headline text-sm font-semibold rounded-full border border-white/15 transition-all duration-300 hover:bg-white/[0.04] hover:border-white/30"
+          >
+            I&apos;m a Style Pro
+          </Link>
         </div>
       </div>
     </section>
