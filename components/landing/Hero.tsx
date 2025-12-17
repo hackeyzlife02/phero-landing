@@ -20,10 +20,6 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10">
-        <p className="font-headline text-[10px] font-semibold tracking-[0.25em] uppercase text-white/35 mb-6">
-          Limited Early Access
-        </p>
-
         <h1 className="font-headline text-[clamp(48px,9vw,96px)] font-medium leading-none tracking-[-0.04em] mb-6">
           Never <em className="font-serif italic font-normal">second-guess</em> again.
         </h1>
