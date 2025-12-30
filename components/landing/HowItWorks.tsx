@@ -11,7 +11,7 @@ const steps = [
   {
     num: '2',
     title: '30 minutes before you go',
-    description: '$45. Text or video.',
+    description: 'Text or video.',
   },
   {
     num: '3',
@@ -51,9 +51,12 @@ export function HowItWorks() {
       }`}
     >
       <div className="max-w-[800px] mx-auto">
-        <div className="font-headline text-[10px] font-semibold tracking-[0.2em] uppercase text-white/30 text-center mb-12">
+        <div className="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-white/30 text-center mb-4">
           How it works
         </div>
+        <h1 className="font-headline text-[clamp(28px,4vw,40px)] font-semibold leading-[1.15] tracking-[-0.02em] text-center mb-12">
+          Your pre-date protocol
+        </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {steps.map((step) => (
@@ -64,7 +67,7 @@ export function HowItWorks() {
               <h4 className="font-headline text-[15px] font-semibold mb-2">
                 {step.title}
               </h4>
-              <p className="font-headline text-sm text-white/40">
+              <p className="font-body text-sm text-white/40">
                 {step.description}
               </p>
             </div>

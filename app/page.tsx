@@ -3,6 +3,7 @@ import { Hero } from '@/components/landing/Hero';
 import { Grounding } from '@/components/landing/Grounding';
 import { Gallery } from '@/components/landing/Gallery';
 import { Interruption } from '@/components/landing/Interruption';
+import { Transformation } from '@/components/landing/Transformation';
 import { HowItWorks } from '@/components/landing/HowItWorks';
 import { Stylists } from '@/components/landing/Stylists';
 import { WaitlistForm } from '@/components/landing/WaitlistForm';
@@ -16,6 +17,7 @@ export default function LandingPage() {
       <Grounding />
       <Gallery />
       <Interruption />
+      <Transformation />
       <HowItWorks />
       <Stylists />
       <WaitlistForm />

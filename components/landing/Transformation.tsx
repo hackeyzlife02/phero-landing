@@ -25,7 +25,7 @@ export function Transformation() {
           setIsVisible(true);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.1 }
     );
 
     if (arrowRef.current) {
@@ -38,22 +38,8 @@ export function Transformation() {
   return (
     <section className="py-24 md:py-32 px-7 md:px-[72px] bg-black border-t border-white/[0.06]">
       <div className="max-w-[1100px] mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="font-body text-[10px] font-semibold tracking-[0.25em] uppercase text-white/40 mb-4">
-            The Switch
-          </div>
-          <h2 className="font-headline text-[clamp(32px,4.5vw,52px)] font-semibold leading-[1.1] tracking-[-0.02em] mb-4">
-            First impressions happen{' '}
-            <em className="font-serif italic font-normal">before you speak.</em>
-          </h2>
-          <p className="font-body text-base text-white/50 max-w-[480px] mx-auto leading-[1.7]">
-            You&apos;ve tried three outfits. Nothing feels right. Your friend texts &quot;looks fine.&quot; That doesn&apos;t help.
-          </p>
-        </div>
-
         {/* Transformation Flow */}
-        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-20 items-start max-w-[1000px] mx-auto min-h-[450px]">
+        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-20 items-start max-w-[1000px] mx-auto md:min-h-[450px]">
           {/* Before State */}
           <div className="bg-white/[0.02] border border-white/[0.06] rounded-[20px] p-7 md:p-8 md:self-start">
             <div className="font-headline text-[11px] font-semibold tracking-[0.15em] uppercase text-white/40 mb-5 pb-4 border-b border-white/[0.08]">
@@ -95,7 +81,7 @@ export function Transformation() {
           </div>
 
           {/* Mobile Curved Arrow - animates on scroll */}
-          <div ref={arrowRef} className="flex md:hidden justify-center py-2 -my-4">
+          <div ref={arrowRef} className="flex md:hidden justify-center py-6">
             <svg viewBox="0 0 60 120" className="w-[60px] h-[120px]">
               <defs>
                 <linearGradient id="arrow-gradient-mobile" x1="0%" y1="0%" x2="0%" y2="100%">

@@ -238,7 +238,7 @@ export default function ApplicationForm() {
             {APP_NAME}
           </Link>
           <span className="font-body text-[13px] text-[#6E6E73]">
-            Founding Stylist
+            Founding Style Pro
           </span>
         </div>
 
@@ -680,7 +680,7 @@ export default function ApplicationForm() {
           </h2>
 
           <p className="font-body text-[15px] text-white/60 leading-[1.75] max-w-[320px] mx-auto">
-            Join our founding cohort of stylists and help shape the future of personal styling.
+            Join our founding cohort of Style Pros and help shape the future of personal styling.
           </p>
         </div>
 

@@ -11,7 +11,7 @@ export const APP_TAGLINE = 'Get dressed like it\'s foreplay.';
 
 export const APP_DESCRIPTION = `Complete your stylist profile to join ${APP_NAME}`;
 
-export const APP_PROGRAM_NAME = `${APP_NAME} Founding Stylist`;
+export const APP_PROGRAM_NAME = `${APP_NAME} Founding Style Pro`;
 
 /**
  * Email-related constants
