@@ -40,6 +40,12 @@ export function Nav() {
           Become a Style Pro
         </Link>
         <Link
+          href="/faq"
+          className="hidden md:block text-white/70 text-[0.75rem] font-medium transition-colors hover:text-white"
+        >
+          FAQ
+        </Link>
+        <Link
           href="#cta"
           className="px-4 py-2 bg-white text-black text-[0.7rem] font-semibold rounded-full transition-transform duration-300 hover:scale-105"
         >

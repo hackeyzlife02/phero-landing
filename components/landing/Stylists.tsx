@@ -43,8 +43,8 @@ export function Stylists() {
             For Style Pros
           </div>
           <h2 className="font-headline text-[clamp(1.5rem,4vw,2.2rem)] font-bold leading-[1.1] tracking-[-0.02em] mb-3">
-            You&apos;ve always had the eye.{' '}
-            <em className="font-serif italic font-normal">Now it has a name.</em>
+            You&apos;ve always had the eye.<br />
+            <em className="font-serif italic font-normal">Now that has a name.</em>
           </h2>
         </div>
 

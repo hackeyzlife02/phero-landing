@@ -33,7 +33,7 @@ function DiscoveryCard({ name, age, location, image, tags }: {
         {/* Status badge - red bg */}
         <div className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1.5 bg-[#8B2332] rounded-full">
           <span className="w-[6px] h-[6px] bg-[#34C759] rounded-full" />
-          <span className="font-headline text-[0.6rem] font-medium text-white">Online</span>
+          <span className="text-[0.6rem] font-medium text-white">Online</span>
         </div>
 
         {/* Name overlay */}
@@ -41,20 +41,20 @@ function DiscoveryCard({ name, age, location, image, tags }: {
           <div className="font-headline text-white text-[1.25rem] font-bold">
             {name}, {age}
           </div>
-          <div className="font-headline text-white/80 text-[0.8rem]">{location}</div>
+          <div className="text-white/80 text-[0.8rem]">{location}</div>
         </div>
       </div>
 
       {/* Content section */}
       <div className="p-4 pt-3">
-        <div className="font-headline text-[0.6rem] font-semibold text-[#737373] uppercase tracking-wider mb-2">
+        <div className="text-[0.6rem] font-semibold text-[#737373] uppercase tracking-wider mb-2">
           Expertise
         </div>
         <div className="flex gap-1.5 flex-wrap">
           {tags.map((tag) => (
             <span
               key={tag}
-              className="font-headline px-3 py-1.5 bg-[#2a2a2a] rounded-full text-[0.6rem] text-white/90 whitespace-nowrap"
+              className="px-3 py-1.5 bg-[#2a2a2a] rounded-full text-[0.6rem] text-white/90 whitespace-nowrap"
             >
               {tag}
             </span>
@@ -103,14 +103,14 @@ function SessionDetailCard({ name, image, specialty }: {
           </div>
         </div>
 
-        {/* Name - uppercase */}
-        <div className="font-headline font-bold text-[1rem] sm:text-[1.1rem] text-white mb-0.5 uppercase tracking-wide">{name}</div>
+        {/* Name */}
+        <div className="font-headline font-bold text-[1rem] sm:text-[1.1rem] text-white mb-0.5 tracking-wide">{name}</div>
 
         {/* Tagline */}
-        <div className="font-headline text-[0.65rem] sm:text-[0.7rem] text-[#737373] mb-3">{specialty}</div>
+        <div className="text-[0.65rem] sm:text-[0.7rem] text-[#737373] mb-3">{specialty}</div>
 
         {/* Ready to Join button */}
-        <span className="inline-block px-3 py-[3px] bg-[#9A1B1B] rounded-full mb-4 font-headline text-[0.4rem] sm:text-[0.45rem] font-medium text-white uppercase tracking-[0.1em] leading-none">Ready to Join</span>
+        <span className="inline-block px-3 py-[3px] bg-[#9A1B1B] rounded-full mb-4 text-[0.4rem] sm:text-[0.45rem] font-medium text-white uppercase tracking-[0.1em] leading-none">Ready to Join</span>
 
         {/* Session info card */}
         <div className="w-full bg-[#1a1a1a] rounded-xl p-3 space-y-2">
@@ -123,8 +123,8 @@ function SessionDetailCard({ name, image, specialty }: {
               </svg>
             </div>
             <div>
-              <div className="font-headline text-[0.5rem] text-[#737373] uppercase tracking-wide">Date</div>
-              <div className="font-headline text-[0.65rem] text-white font-medium">Wednesday, Dec 31</div>
+              <div className="text-[0.5rem] text-[#737373] uppercase tracking-wide">Date</div>
+              <div className="text-[0.65rem] text-white font-medium">Friday, Dec 19</div>
             </div>
           </div>
           {/* Time row */}
@@ -136,8 +136,8 @@ function SessionDetailCard({ name, image, specialty }: {
               </svg>
             </div>
             <div>
-              <div className="font-headline text-[0.5rem] text-[#737373] uppercase tracking-wide">Start Time</div>
-              <div className="font-headline text-[0.65rem] text-white font-medium">4:55 PM</div>
+              <div className="text-[0.5rem] text-[#737373] uppercase tracking-wide">Start Time</div>
+              <div className="text-[0.65rem] text-white font-medium">6:30 PM</div>
             </div>
           </div>
           {/* Session type row */}
@@ -149,8 +149,8 @@ function SessionDetailCard({ name, image, specialty }: {
               </svg>
             </div>
             <div>
-              <div className="font-headline text-[0.5rem] text-[#737373] uppercase tracking-wide">Session Type</div>
-              <div className="font-headline text-[0.65rem] text-white font-medium">Video • 30 min</div>
+              <div className="text-[0.5rem] text-[#737373] uppercase tracking-wide">Session Type</div>
+              <div className="text-[0.65rem] text-white font-medium">Video • 30 min</div>
             </div>
           </div>
         </div>
@@ -201,7 +201,7 @@ function ChatSessionCard({ name, image }: {
 
         {/* Session badge */}
         <div className="text-center mb-2 -mt-1">
-          <span className="font-headline inline-block px-2 py-[3px] bg-black/25 rounded-full text-[0.4rem] font-medium tracking-wide uppercase">
+          <span className="inline-block px-2 py-[3px] bg-black/25 rounded-full text-[0.4rem] font-medium tracking-wide uppercase">
             Date Night Session
           </span>
         </div>
@@ -209,20 +209,20 @@ function ChatSessionCard({ name, image }: {
         {/* Messages */}
         <div className="flex-1 flex flex-col gap-2 overflow-hidden">
           <div className="self-start max-w-[85%] px-3 py-2 bg-black/30 rounded-[14px] rounded-bl-[4px]">
-            <p className="font-headline text-[0.6rem] sm:text-[0.65rem] text-white leading-snug">What&apos;s the vibe tonight?</p>
+            <p className="text-[0.6rem] sm:text-[0.65rem] text-white leading-snug">What&apos;s the vibe tonight?</p>
           </div>
           <div className="self-end max-w-[85%] px-3 py-2 bg-white/95 rounded-[14px] rounded-br-[4px]">
-            <p className="font-headline text-[0.6rem] sm:text-[0.65rem] text-black leading-snug">Rooftop bar, first date. Want to look effortless but put-together</p>
+            <p className="text-[0.6rem] sm:text-[0.65rem] text-black leading-snug">Rooftop bar, first date. Want to look effortless but put-together</p>
           </div>
           <div className="self-start max-w-[85%] px-3 py-2 bg-black/30 rounded-[14px] rounded-bl-[4px]">
-            <p className="font-headline text-[0.6rem] sm:text-[0.65rem] text-white leading-snug">Love that. Show me what you&apos;re working with!</p>
+            <p className="text-[0.6rem] sm:text-[0.65rem] text-white leading-snug">Love that. Show me what you&apos;re working with!</p>
           </div>
         </div>
 
         {/* Input bar */}
         <div className="flex gap-2 items-center mt-3">
           <div className="w-7 h-7 bg-white/20 rounded-full flex items-center justify-center text-[0.8rem] text-white">+</div>
-          <div className="font-headline flex-1 bg-black/20 border border-white/20 rounded-full px-3 py-2 text-[0.55rem] text-white/60">
+          <div className="flex-1 bg-black/20 border border-white/20 rounded-full px-3 py-2 text-[0.55rem] text-white/60">
             Message
           </div>
           <div className="w-7 h-7 flex items-center justify-center">
@@ -238,7 +238,7 @@ function ChatSessionCard({ name, image }: {
 
 // Static cards for desktop, animated for mobile
 const staticCards = [
-  { type: 'discovery', name: 'Alexa', age: 26, location: 'LA', image: '/stylists/style-pro-alexa.jpeg', tags: ['vintage', 'jewelry maximalist', 'knee high boots'] },
+  { type: 'discovery', name: 'Alexa', age: 25, location: 'New York, NY', image: '/stylists/style-pro-alexa.jpeg', tags: ['vintage', 'jewelry maximalist', 'knee high boots'] },
   { type: 'session', name: 'Alexa', image: '/stylists/style-pro-alexa.jpeg', specialty: 'Let\'s make you unforgettable' },
   { type: 'chat', name: 'Alexa', image: '/stylists/style-pro-alexa.jpeg' },
 ];
@@ -246,7 +246,7 @@ const staticCards = [
 // More cards for mobile carousel
 const mobileCards = [
   ...staticCards,
-  { type: 'discovery', name: 'Alexa', age: 26, location: 'LA', image: '/stylists/style-pro-alexa.jpeg', tags: ['vintage', 'jewelry maximalist', 'knee high boots'] },
+  { type: 'discovery', name: 'Alexa', age: 25, location: 'New York, NY', image: '/stylists/style-pro-alexa.jpeg', tags: ['vintage', 'jewelry maximalist', 'knee high boots'] },
   { type: 'session', name: 'Alexa', image: '/stylists/style-pro-alexa.jpeg', specialty: 'Let\'s make you unforgettable' },
   { type: 'chat', name: 'Alexa', image: '/stylists/style-pro-alexa.jpeg' },
 ];

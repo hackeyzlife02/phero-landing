@@ -67,6 +67,10 @@ module.exports = {
           '0%, 100%': { boxShadow: '0 6px 24px rgba(0,122,255,0.22)' },
           '50%': { boxShadow: '0 10px 36px rgba(0,122,255,0.38)' },
         },
+        'marquee': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         glowPulse: 'glowPulse 4s ease-in-out infinite',
@@ -77,9 +81,10 @@ module.exports = {
         drift1: 'drift1 20s ease-in-out infinite',
         drift2: 'drift2 25s ease-in-out infinite',
         reveal: 'reveal 0.8s ease forwards',
-        'carousel-scroll': 'carousel-scroll 38s linear infinite',
+        'carousel-scroll': 'carousel-scroll 24s linear infinite',
         'typing-bounce': 'typing-bounce 1.4s ease-in-out infinite',
         'bubble-pulse': 'bubble-pulse 2.5s ease-in-out infinite',
+        'marquee': 'marquee 12s linear infinite',
       },
       spacing: {
         'xxs': 'var(--spacing-xxs)',

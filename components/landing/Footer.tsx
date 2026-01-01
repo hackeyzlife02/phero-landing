@@ -11,6 +11,12 @@ export function Footer() {
 
         {/* Links */}
         <div className="flex gap-6">
+          <Link
+            href="/faq"
+            className="sm:hidden text-white/50 text-[0.75rem] transition-colors hover:text-white"
+          >
+            FAQ
+          </Link>
           <a
             href="mailto:hello@pheroapp.com"
             className="text-white/50 text-[0.75rem] transition-colors hover:text-white"

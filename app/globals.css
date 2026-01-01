@@ -189,3 +189,14 @@ html.ios-safari .hero-section {
     padding-bottom: 280px;
   }
 }
+
+/* Marquee speed - faster on mobile */
+.animate-marquee {
+  animation-duration: 8.5s;
+}
+
+@media (min-width: 640px) {
+  .animate-marquee {
+    animation-duration: 12s;
+  }
+}

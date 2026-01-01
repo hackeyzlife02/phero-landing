@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { CheckCircle, Loader2 } from 'lucide-react';
 
-const BASE_COUNT = 131;
+const BASE_COUNT = 121;
 const STORAGE_KEY = 'phero_waitlist_count';
 
 function getStoredCount(): { count: number; timestamp: number } {
@@ -128,9 +128,9 @@ export function WaitlistForm() {
   }
 
   return (
-    <section id="cta" className="bg-black py-16 sm:py-20 md:py-[100px] px-4 sm:px-7 text-center">
-      <div className="max-w-[500px] mx-auto">
-        <h2 className="font-headline text-[clamp(2rem,5vw,3.5rem)] font-bold leading-none tracking-[-0.03em] mb-3.5">
+    <section id="cta" className="bg-black py-16 sm:py-20 md:py-[100px] px-4 sm:px-7 text-center overflow-hidden">
+      <div className="mx-auto">
+        <h2 className="font-headline text-[clamp(1.5rem,5vw,3.5rem)] font-bold leading-none tracking-[-0.03em] mb-3.5 whitespace-nowrap text-center">
           How you show up <em className="font-serif italic font-normal">matters.</em>
         </h2>
 
@@ -138,7 +138,7 @@ export function WaitlistForm() {
           Be first when we launch in NYC.
         </p>
 
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2.5 max-w-[400px] mx-auto mb-4">
+        <form onSubmit={handleSubmit} className="flex flex-row gap-2 max-w-[420px] mx-auto mb-4">
           <input
             type="email"
             inputMode="email"
@@ -146,17 +146,17 @@ export function WaitlistForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Your email"
-            className="flex-1 min-w-0 px-5 py-3.5 bg-white/[0.05] border border-white/15 rounded-full text-white text-[0.85rem] placeholder:text-white/40 focus:outline-none focus:border-white/30 focus:bg-white/[0.08] transition-all"
+            className="flex-1 min-w-0 px-4 py-3 bg-white/[0.05] border border-white/15 rounded-full text-white text-[0.8rem] sm:text-[0.85rem] placeholder:text-white/40 focus:outline-none focus:border-white/30 focus:bg-white/[0.08] transition-all"
           />
           <button
             type="submit"
             disabled={loading}
-            className="px-7 py-3.5 bg-gradient-brand text-white font-headline text-[0.85rem] font-semibold rounded-full transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
+            className="px-4 sm:px-6 py-3 bg-gradient-brand text-white font-headline text-[0.75rem] sm:text-[0.85rem] font-semibold rounded-full transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100 whitespace-nowrap"
           >
             {loading ? (
               <Loader2 className="w-4 h-4 animate-spin mx-auto" />
             ) : (
-              'Join'
+              'Early Access'
             )}
           </button>
         </form>

@@ -11,16 +11,20 @@ export function Hero() {
       {/* Content */}
       <div className="text-center max-w-[700px] mx-auto flex-1 flex flex-col justify-center">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2.5 bg-white/15 rounded-full mb-8 mx-auto">
-          <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
-          <span className="font-headline text-[0.65rem] sm:text-[0.7rem] font-semibold tracking-[0.12em] uppercase">
-            NYC 2026
+        <div className="mb-8">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/90 text-[0.8rem] font-medium tracking-wide">
+            <svg className="w-3.5 h-3.5 text-white/70" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+            </svg>
+            <span>NYC</span>
+            <span className="w-px h-3 bg-white/30" />
+            <span>2026</span>
           </span>
         </div>
 
         {/* Headline */}
         <h1 className="font-headline text-[2.25rem] sm:text-[clamp(2.8rem,8vw,4.5rem)] font-bold leading-[0.95] tracking-[-0.03em] mb-6 sm:mb-5">
-          Nail the Dates <em className="font-serif italic font-normal">You Already Have.</em>
+          Nail the Dates<br /><em className="font-serif italic font-normal">You Already Have.</em>
         </h1>
 
         {/* Subheadline */}

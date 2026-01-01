@@ -32,10 +32,11 @@ export function Referral() {
           Know someone who spirals before every date?
         </p>
 
-        <button
-          onClick={handleShare}
-          className="inline-flex items-center gap-3 px-4 py-2.5 pr-5 bg-[#007AFF] rounded-[20px] rounded-bl-[6px] text-white cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_12px_36px_rgba(0,122,255,0.38)] animate-bubble-pulse hover:animate-none shadow-[0_6px_24px_rgba(0,122,255,0.22)]"
-        >
+        <div className="flex justify-center">
+          <button
+            onClick={handleShare}
+            className="inline-flex items-center gap-3 px-4 py-2.5 pr-5 bg-[#007AFF] rounded-[20px] rounded-bl-[6px] text-white cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_12px_36px_rgba(0,122,255,0.38)] animate-bubble-pulse hover:animate-none shadow-[0_6px_24px_rgba(0,122,255,0.22)]"
+          >
           <div className="w-10 h-10 bg-gradient-brand rounded-[10px] flex items-center justify-center font-headline font-bold text-[0.9rem]">
             P
           </div>
@@ -45,7 +46,8 @@ export function Referral() {
             </div>
             <div className="text-[0.65rem] opacity-70">pheroapp.com</div>
           </div>
-        </button>
+          </button>
+        </div>
       </div>
     </section>
   );
