@@ -1,9 +1,13 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { HeroCarousel } from './HeroCarousel';
+import { WaitlistModal } from './WaitlistModal';
 
 export function Hero() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section
       className="hero-section flex flex-col pt-[100px] sm:pt-[120px] md:pt-[140px] px-4 sm:px-7 hero-padding-bottom relative bg-gradient-brand"
@@ -34,12 +38,12 @@ export function Hero() {
 
         {/* CTA */}
         <div className="flex flex-col sm:flex-row gap-2.5 justify-center items-center mx-auto">
-          <Link
-            href="#cta"
+          <button
+            onClick={() => setIsModalOpen(true)}
             className="px-6 py-3 sm:py-3.5 bg-white text-black font-headline text-[0.8125rem] sm:text-[0.875rem] font-semibold rounded-full text-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_32px_rgba(0,0,0,0.2)] min-w-[155px]"
           >
             Get Early Access
-          </Link>
+          </button>
           <Link
             href="#pros"
             className="px-6 py-3 sm:py-3.5 bg-white/15 text-white font-headline text-[0.8125rem] sm:text-[0.875rem] font-semibold rounded-full text-center transition-all duration-300 hover:bg-white/25 min-w-[155px]"
@@ -51,6 +55,9 @@ export function Hero() {
 
       {/* Carousel */}
       <HeroCarousel />
+
+      {/* Waitlist Modal */}
+      <WaitlistModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }

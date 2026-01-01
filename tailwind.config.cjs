@@ -71,6 +71,14 @@ module.exports = {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
         },
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        'modal-in': {
+          '0%': { opacity: '0', transform: 'scale(0.95)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
       },
       animation: {
         glowPulse: 'glowPulse 4s ease-in-out infinite',
@@ -85,6 +93,8 @@ module.exports = {
         'typing-bounce': 'typing-bounce 1.4s ease-in-out infinite',
         'bubble-pulse': 'bubble-pulse 2.5s ease-in-out infinite',
         'marquee': 'marquee 12s linear infinite',
+        'fade-in': 'fade-in 150ms ease-out',
+        'modal-in': 'modal-in 200ms ease-out',
       },
       spacing: {
         'xxs': 'var(--spacing-xxs)',
