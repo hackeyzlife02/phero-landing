@@ -1,77 +1,88 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { PhoneMockup } from './PhoneMockup';
 
 const steps = [
   {
-    num: '1',
-    title: 'Pick someone with the eye',
-    description: 'Browse Style Pros. Find yours.',
+    time: '6:30 PM',
+    title: 'You open PHERO',
+    description: 'Find someone who gets your vibe.',
+    active: false,
+    dotPosition: 'top-5 sm:top-7 md:top-9',
   },
   {
-    num: '2',
-    title: '30 minutes before you go',
-    description: 'Text or video.',
+    time: '6:42 PM',
+    title: '"Tell me about her."',
+    description: 'They ask the right questions. You get the right answers.',
+    active: true,
+    dotPosition: 'top-1/2 -translate-y-1/2',
   },
   {
-    num: '3',
-    title: 'Walk in ready',
-    description: 'No second-guessing.',
+    time: '7:15 PM',
+    title: 'You walk out the door',
+    description: 'Not hoping you look good. Knowing.',
+    active: false,
+    dotPosition: 'bottom-5 sm:bottom-7 md:bottom-9',
   },
 ];
 
 export function HowItWorks() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(element);
-        }
-      },
-      { threshold: 0.12 }
-    );
-
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section
-      ref={ref}
       id="how"
-      className={`py-20 md:py-[100px] px-4 sm:px-6 md:px-12 border-t border-white/[0.04] transition-all duration-700 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-      }`}
+      className="flex-1 pt-4 sm:pt-6 md:pt-8 pb-10 px-4 sm:px-7 relative overflow-hidden flex items-start"
+      style={{
+        background: 'linear-gradient(180deg, #000 0%, #080808 50%, #000 100%)',
+      }}
     >
-      <div className="max-w-[800px] mx-auto">
-        <div className="font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-white/30 text-center mb-4">
-          How it works
-        </div>
-        <h1 className="font-headline text-[clamp(28px,4vw,40px)] font-semibold leading-[1.15] tracking-[-0.02em] text-center mb-12">
-          Your pre-date protocol
-        </h1>
+      {/* Subtle radial glow */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(154,27,27,0.06) 0%, transparent 60%)',
+        }}
+      />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          {steps.map((step) => (
-            <div key={step.num} className="text-center">
-              <div className="font-serif text-4xl italic text-white/35 mb-4">
-                {step.num}
+      <div className="w-full max-w-[1100px] mx-auto grid grid-cols-2 gap-5 sm:gap-10 md:gap-20 items-center relative z-10">
+        {/* Timeline Steps */}
+        <div className="flex flex-col gap-8 sm:gap-12 md:gap-[70px]">
+          {steps.map((step, index) => (
+            <div
+              key={index}
+              className={`
+                relative py-4 sm:py-6 md:py-8 pl-5 sm:pl-7 md:pl-10
+                border-l sm:border-l-2 transition-all duration-400
+                ${step.active ? 'border-white/40' : 'border-white/10'}
+              `}
+            >
+              {/* Timeline dot */}
+              <div
+                className={`
+                  absolute -left-[4px] sm:-left-[5px] md:-left-[6px] ${step.dotPosition}
+                  w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full transition-all duration-400
+                  ${step.active
+                    ? 'bg-gradient-brand shadow-[0_0_20px_rgba(154,27,27,0.5)]'
+                    : 'bg-white/20'
+                  }
+                `}
+              />
+
+              <div className="font-serif italic text-[0.8rem] sm:text-[0.9rem] md:text-[1rem] opacity-50 mb-1.5 sm:mb-2">
+                {step.time}
               </div>
-              <h4 className="font-headline text-[15px] font-semibold mb-2">
+              <h3 className="font-headline text-[1.1rem] sm:text-xl md:text-3xl font-bold leading-tight mb-1.5 sm:mb-2 md:mb-3">
                 {step.title}
-              </h4>
-              <p className="font-body text-sm text-white/40">
+              </h3>
+              <p className="text-[0.85rem] sm:text-[0.95rem] md:text-[1.1rem] leading-snug opacity-60">
                 {step.description}
               </p>
             </div>
           ))}
+        </div>
+
+        {/* Phone Mockup */}
+        <div className="flex justify-center">
+          <PhoneMockup />
         </div>
       </div>
     </section>

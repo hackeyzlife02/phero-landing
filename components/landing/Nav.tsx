@@ -18,35 +18,30 @@ export function Nav() {
   return (
     <nav
       className={`
-        fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-12 py-4 sm:py-5
+        fixed top-[31px] sm:top-[33px] left-0 right-0 z-[1000]
+        px-4 sm:px-7 py-4
         flex justify-between items-center
         transition-all duration-300 ease-out
         ${scrolled
-          ? 'bg-black/80 backdrop-blur-xl border-b border-white/[0.06]'
-          : 'bg-transparent border-b border-transparent'
+          ? 'bg-black/80 backdrop-blur-xl'
+          : 'bg-black/20 backdrop-blur-xl'
         }
       `}
     >
-      <Link href="/" className="font-headline text-base font-semibold text-white tracking-[0.12em]">
+      <Link href="/" className="font-headline text-[0.85rem] font-bold tracking-[0.14em] text-white">
         PHERO
       </Link>
 
-      <div className="flex items-center gap-8">
+      <div className="flex items-center gap-6">
         <Link
-          href="#how"
-          className="hidden md:block font-headline text-[13px] text-white/50 transition-colors hover:text-white"
+          href="#pros"
+          className="hidden md:block text-white/70 text-[0.75rem] font-medium transition-colors hover:text-white"
         >
-          How it works
+          Become a Style Pro
         </Link>
         <Link
-          href="#stylists"
-          className="hidden md:block font-headline text-[13px] text-white/50 transition-colors hover:text-white"
-        >
-          Style Pros
-        </Link>
-        <Link
-          href="#waitlist"
-          className="px-5 sm:px-6 py-3 sm:py-2.5 bg-gradient-brand text-white font-headline text-[13px] font-semibold rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_24px_rgba(154,27,27,0.3)]"
+          href="#cta"
+          className="px-4 py-2 bg-white text-black text-[0.7rem] font-semibold rounded-full transition-transform duration-300 hover:scale-105"
         >
           Early Access
         </Link>

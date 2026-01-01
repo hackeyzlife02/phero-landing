@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { APP_NAME, APP_PROGRAM_NAME } from '@/lib/constants/app';
-
+import { firestore, emailToDocId, serverTimestamp } from '@/lib/firebase/server';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -62,6 +62,7 @@ interface ApplicationData {
   first_name: string;
   last_name: string;
   email: string;
+  birthday?: string;
   instagram_handle: string;
   tiktok_handle?: string;
   other_socials: {
@@ -104,15 +105,38 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // In a full implementation, you would:
-    // 1. Create the user in Firebase Auth (via REST API or a cloud function)
-    // 2. Create the stylist document in Firestore
-    //
-    // For now, we'll send a notification email to admin and confirmation to applicant
-    // The admin can then manually process the application
+    // Save application to Firestore
+    const docId = emailToDocId(formData.email);
+    const applicationData = {
+      email: formData.email.toLowerCase(),
+      full_name: `${formData.first_name} ${formData.last_name}`.trim(),
+      birthday: formData.birthday || '',
+      location_city: formData.location_city,
+      location_state: formData.location_state,
+      bio: formData.bio,
+      instagram_handle: formData.instagram_handle,
+      tiktok_handle: formData.tiktok_handle || '',
+      facebook_url: formData.other_socials?.facebook || '',
+      linkedin_url: formData.other_socials?.linkedin || '',
+      website_url: formData.other_socials?.website || '',
+      phone: formData.phone || '',
+      email_verified: true,
+      status: 'submitted',
+      created_at: serverTimestamp(),
+      updated_at: serverTimestamp(),
+    };
 
-    const fromEmail = process.env.RESEND_FROM_EMAIL || `${APP_NAME} <noreply@mail.stylistonstandby.com>`;
-    const adminEmail = process.env.ADMIN_EMAIL || 'george@lbksf.com';
+    const saved = await firestore.setDoc('stylist_applications', docId, applicationData);
+    if (!saved) {
+      console.error('Failed to save application to Firestore');
+      return NextResponse.json(
+        { error: 'Failed to save application' },
+        { status: 500 }
+      );
+    }
+
+    const fromEmail = process.env.RESEND_FROM_EMAIL || `${APP_NAME} <noreply@mail.pheroapp.com>`;
+    const adminEmail = process.env.ADMIN_EMAIL || 'contact@pheroapp.com';
 
     // Send notification to admin
     await resend.emails.send({

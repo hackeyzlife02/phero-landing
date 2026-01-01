@@ -33,3 +33,11 @@ next-env.d.ts
 
 # claude code instructions (local only)
 claude.md
+
+# Firebase config - DO NOT ADD THESE FILES
+# This project shares Firebase with iOS app (sos-react)
+# Deploying rules from here will break the iOS app
+firebase.json
+firestore.rules
+firestore.indexes.json
+.firebaserc

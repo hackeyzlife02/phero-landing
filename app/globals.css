@@ -89,14 +89,21 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--color-bg);
+  background: linear-gradient(135deg, #9A1B1B 0%, #7B2D9E 100%);
   color: var(--color-text-primary);
   overflow-x: hidden;
 }
 
-/* Smooth scroll */
+/* Smooth scroll and iOS viewport fix */
 html {
   scroll-behavior: smooth;
+  background: linear-gradient(135deg, #9A1B1B 0%, #7B2D9E 100%);
+  height: -webkit-fill-available;
+}
+
+html, body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
 
 /* Landing page particle animation */
@@ -130,4 +137,55 @@ html {
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Carousel infinite scroll */
+@keyframes carousel-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Typing indicator bounce */
+@keyframes typing-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+/* Share bubble pulse */
+@keyframes bubble-pulse {
+  0%, 100% { box-shadow: 0 6px 24px rgba(0,122,255,0.22); }
+  50% { box-shadow: 0 10px 36px rgba(0,122,255,0.38); }
+}
+
+/* Orbit spin for saved visual */
+@keyframes orbit-spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Hero section - use svh (small viewport) to account for browser chrome/nav bars */
+.hero-section {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+html.ios-safari .hero-section {
+  min-height: 110vh;
+}
+
+/* Hero bottom padding with safe area support */
+.hero-padding-bottom {
+  padding-bottom: max(320px, calc(320px + env(safe-area-inset-bottom, 0px)));
+}
+
+@media (min-width: 640px) {
+  .hero-padding-bottom {
+    padding-bottom: 280px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-padding-bottom {
+    padding-bottom: 280px;
+  }
 }

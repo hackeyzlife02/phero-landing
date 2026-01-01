@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { ArrowRight, Clock, DollarSign, RefreshCw, Star } from 'lucide-react';
-import { type ReactNode, useEffect, useRef, useState } from 'react';
+import { type ReactNode } from 'react';
 
 interface Perk {
   icon: ReactNode;
@@ -12,111 +12,75 @@ interface Perk {
 
 const perks: Perk[] = [
   {
-    icon: <Clock className="w-[22px] h-[22px]" strokeWidth={1.75} />,
+    icon: <Clock className="w-[22px] h-[22px]" strokeWidth={2} />,
     title: 'On Your Terms',
-    description: 'Work when and where you want'
+    description: 'Work when and where you want. No algorithms. No content treadmill.',
   },
   {
-    icon: <DollarSign className="w-[22px] h-[22px]" strokeWidth={1.75} />,
-    title: 'Get Paid',
-    description: 'Weekly payouts'
+    icon: <DollarSign className="w-[22px] h-[22px]" strokeWidth={2} />,
+    title: 'Weekly Payouts',
+    description: "For work you're already doing",
   },
   {
-    icon: <RefreshCw className="w-[22px] h-[22px]" strokeWidth={1.75} />,
-    title: 'Your People',
-    description: 'Regulars who come back to you'
+    icon: <RefreshCw className="w-[22px] h-[22px]" strokeWidth={2} />,
+    title: 'Your Clients',
+    description: 'Build relationships that last',
   },
   {
-    icon: <Star className="w-[22px] h-[22px]" strokeWidth={1.75} />,
-    title: 'Your Brand',
-    description: 'Build a name, not just a handle'
+    icon: <Star className="w-[22px] h-[22px]" strokeWidth={2} />,
+    title: 'Your Reputation',
+    description: 'Be known for your taste',
   },
 ];
 
 export function Stylists() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(element);
-        }
-      },
-      { threshold: 0.12 }
-    );
-
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section
-      ref={ref}
-      id="stylists"
-      className={`py-20 md:py-[100px] px-4 sm:px-6 md:px-12 border-t border-white/[0.04] transition-all duration-700 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-      }`}
-    >
-      <div className="max-w-[900px] mx-auto">
-        {/* Main grid: text centered to perks grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left: Content */}
-          <div>
-            <div className="font-headline text-[10px] font-semibold tracking-[0.2em] uppercase text-white/30 mb-12">
-              For Style Pros
-            </div>
-
-            <h3 className="font-headline text-[32px] font-medium leading-[1.2] mb-4">
-              You have the eye.<br />
-              <em className="font-serif italic font-normal">Get paid for it.</em>
-            </h3>
-
-            <p className="font-headline text-[15px] text-white/45 leading-relaxed">
-              You&apos;re not just picking outfits. You&apos;re giving them the confidence to walk in ready.
-            </p>
+    <section id="pros" className="bg-black py-16 sm:py-20 md:py-[100px] px-4 sm:px-7">
+      <div className="max-w-[600px] mx-auto">
+        {/* Header */}
+        <div className="text-center mb-4">
+          <div className="font-headline text-[0.6rem] font-bold tracking-[0.2em] uppercase opacity-50 mb-3">
+            For Style Pros
           </div>
-
-          {/* Right: Perks Grid */}
-          <div className="grid grid-cols-1 xs:grid-cols-2 gap-3">
-            {perks.map((perk, i) => (
-              <div
-                key={i}
-                className="bg-[#0D0D0D] border border-white/[0.04] rounded-2xl xs:rounded-[20px] p-5 xs:p-6 flex flex-col gap-3 xs:gap-4 transition-all duration-300 hover:bg-white/[0.04]"
-              >
-                <div className="w-12 h-12 bg-gradient-brand rounded-[14px] flex items-center justify-center text-white shrink-0">
-                  {perk.icon}
-                </div>
-                <div>
-                  <h5 className="font-headline text-[15px] font-semibold mb-1">
-                    {perk.title}
-                  </h5>
-                  <p className="font-headline text-[13px] text-white/40 leading-snug">
-                    {perk.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <h2 className="font-headline text-[clamp(1.5rem,4vw,2.2rem)] font-bold leading-[1.1] tracking-[-0.02em] mb-3">
+            You&apos;ve always had the eye.{' '}
+            <em className="font-serif italic font-normal">Now it has a name.</em>
+          </h2>
         </div>
 
-        {/* CTA below grid, aligned to right column */}
-        <div className="mt-5 lg:grid lg:grid-cols-2 lg:gap-20">
-          <div className="hidden lg:block" />
-          <div>
-            <Link
-              href="/apply"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-transparent text-white font-headline text-sm font-semibold rounded-full border border-white/15 transition-all duration-300 hover:bg-white/[0.04] hover:border-white/30 group"
+        <p className="text-[0.9rem] leading-[1.7] opacity-60 text-center mb-10">
+          You&apos;re the friend everyone texts at 7pm. &ldquo;Does this work?&rdquo; Now your taste has a platform.
+        </p>
+
+        {/* Perks Grid */}
+        <div className="grid grid-cols-2 gap-4 mb-9">
+          {perks.map((perk, i) => (
+            <div
+              key={i}
+              className="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05] hover:border-white/[0.12]"
             >
-              Apply Now
-              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" strokeWidth={2.5} />
-            </Link>
-          </div>
+              <div className="w-11 h-11 bg-gradient-brand rounded-xl flex items-center justify-center text-white mb-4">
+                {perk.icon}
+              </div>
+              <h4 className="font-headline text-[0.95rem] font-semibold mb-1.5">
+                {perk.title}
+              </h4>
+              <p className="text-[0.78rem] leading-snug opacity-60">
+                {perk.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center">
+          <Link
+            href="/apply"
+            className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/[0.08] border border-white/15 text-white font-headline text-[0.82rem] font-semibold rounded-full transition-all duration-300 hover:bg-white/[0.12] hover:border-white/25 hover:-translate-y-0.5"
+          >
+            Apply Now
+            <ArrowRight className="w-3.5 h-3.5" strokeWidth={2} />
+          </Link>
         </div>
       </div>
     </section>

@@ -1,33 +1,79 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { ArrowRight, CheckCircle, Loader2 } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { CheckCircle, Loader2 } from 'lucide-react';
+
+const BASE_COUNT = 131;
+const STORAGE_KEY = 'phero_waitlist_count';
+
+function getStoredCount(): { count: number; timestamp: number } {
+  if (typeof window === 'undefined') return { count: BASE_COUNT, timestamp: Date.now() };
+
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      return JSON.parse(stored);
+    }
+  } catch {
+    // Ignore localStorage errors
+  }
+
+  const initial = { count: BASE_COUNT, timestamp: Date.now() };
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(initial));
+  } catch {
+    // Ignore localStorage errors
+  }
+  return initial;
+}
+
+function calculateCurrentCount(): number {
+  const { count, timestamp } = getStoredCount();
+  const elapsed = Date.now() - timestamp;
+  const hoursPassed = elapsed / (1000 * 60 * 60);
+
+  // Add 0-2 people per hour on average
+  const additionalPeople = Math.floor(hoursPassed * (Math.random() * 2));
+  const newCount = count + additionalPeople;
+
+  // Update stored value
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ count: newCount, timestamp: Date.now() }));
+  } catch {
+    // Ignore localStorage errors
+  }
+
+  return newCount;
+}
 
 export function WaitlistForm() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-
-  const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [waitlistCount, setWaitlistCount] = useState(BASE_COUNT);
 
   useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
+    // Initialize count on mount
+    setWaitlistCount(calculateCurrentCount());
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(element);
-        }
-      },
-      { threshold: 0.12 }
-    );
+    // Periodically increment (every 30-90 seconds)
+    const interval = setInterval(() => {
+      const shouldIncrement = Math.random() > 0.5;
+      if (shouldIncrement) {
+        setWaitlistCount((prev) => {
+          const newCount = prev + 1;
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify({ count: newCount, timestamp: Date.now() }));
+          } catch {
+            // Ignore localStorage errors
+          }
+          return newCount;
+        });
+      }
+    }, 30000 + Math.random() * 60000);
 
-    observer.observe(element);
-    return () => observer.disconnect();
+    return () => clearInterval(interval);
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -54,6 +100,8 @@ export function WaitlistForm() {
       }
 
       setSubmitted(true);
+      // Increment counter on successful signup
+      setWaitlistCount((prev) => prev + 1);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong');
     } finally {
@@ -63,16 +111,16 @@ export function WaitlistForm() {
 
   if (submitted) {
     return (
-      <section id="waitlist" className="py-20 md:py-[120px] px-4 sm:px-6 md:px-12 text-center border-t border-white/[0.04]">
+      <section id="cta" className="bg-black py-16 sm:py-20 md:py-[100px] px-4 sm:px-7 text-center">
         <div className="max-w-md mx-auto">
           <div className="w-16 h-16 mx-auto mb-6 bg-gradient-brand rounded-full flex items-center justify-center">
             <CheckCircle className="w-10 h-10 text-white" strokeWidth={2.5} />
           </div>
-          <h2 className="font-headline text-3xl font-medium mb-4">
-            You&apos;re on the list!
+          <h2 className="font-headline text-2xl sm:text-3xl font-semibold mb-4">
+            You&apos;re in. We&apos;ll be in touch.
           </h2>
-          <p className="font-headline text-white/50">
-            We&apos;ll let you know when PHERO launches.
+          <p className="text-white/50">
+            Thanks for joining the waitlist.
           </p>
         </div>
       </section>
@@ -80,46 +128,51 @@ export function WaitlistForm() {
   }
 
   return (
-    <section
-      ref={ref}
-      id="waitlist"
-      className={`py-20 md:py-[120px] px-4 sm:px-6 md:px-12 text-center border-t border-white/[0.04] transition-all duration-700 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-      }`}
-    >
-      <h2 className="font-headline text-[clamp(28px,5vw,44px)] font-medium mb-10">
-        Attraction is chemistry. Confidence is <em className="font-serif italic font-normal">the catalyst.</em>
-      </h2>
+    <section id="cta" className="bg-black py-16 sm:py-20 md:py-[100px] px-4 sm:px-7 text-center">
+      <div className="max-w-[500px] mx-auto">
+        <h2 className="font-headline text-[clamp(2rem,5vw,3.5rem)] font-bold leading-none tracking-[-0.03em] mb-3.5">
+          How you show up <em className="font-serif italic font-normal">matters.</em>
+        </h2>
 
-      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-[480px] mx-auto">
-        <input
-          type="email"
-          inputMode="email"
-          autoComplete="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email"
-          className="flex-1 min-w-0 px-5 sm:px-6 py-4 bg-white/[0.04] border border-white/[0.08] rounded-full text-white font-headline text-sm placeholder:text-white/25 focus:outline-none focus:border-white/20 focus:bg-white/[0.06] transition-all"
-        />
-        <button
-          type="submit"
-          disabled={loading}
-          className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-brand text-white font-headline text-sm font-semibold rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(154,27,27,0.25)] disabled:opacity-50 disabled:hover:translate-y-0 group whitespace-nowrap"
-        >
-          {loading ? (
-            <Loader2 className="w-4 h-4 animate-spin" />
-          ) : (
-            <>
-              Early Access
-              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" strokeWidth={2.5} />
-            </>
-          )}
-        </button>
-      </form>
+        <p className="text-base opacity-60 mb-8">
+          Be first when we launch in NYC.
+        </p>
 
-      {error && (
-        <p className="text-red-400 text-sm mt-4">{error}</p>
-      )}
+        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2.5 max-w-[400px] mx-auto mb-4">
+          <input
+            type="email"
+            inputMode="email"
+            autoComplete="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Your email"
+            className="flex-1 min-w-0 px-5 py-3.5 bg-white/[0.05] border border-white/15 rounded-full text-white text-[0.85rem] placeholder:text-white/40 focus:outline-none focus:border-white/30 focus:bg-white/[0.08] transition-all"
+          />
+          <button
+            type="submit"
+            disabled={loading}
+            className="px-7 py-3.5 bg-gradient-brand text-white font-headline text-[0.85rem] font-semibold rounded-full transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
+          >
+            {loading ? (
+              <Loader2 className="w-4 h-4 animate-spin mx-auto" />
+            ) : (
+              'Join'
+            )}
+          </button>
+        </form>
+
+        {error && (
+          <p className="text-red-400 text-sm mb-4">{error}</p>
+        )}
+
+        <p className="text-[0.85rem] font-medium text-white mb-2">
+          First session half off for early signups.
+        </p>
+
+        <p className="text-[0.8rem] opacity-50">
+          <span className="text-white opacity-100">{waitlistCount}</span> people on the waitlist
+        </p>
+      </div>
     </section>
   );
 }

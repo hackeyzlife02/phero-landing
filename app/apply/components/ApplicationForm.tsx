@@ -155,6 +155,7 @@ export default function ApplicationForm() {
             first_name: firstName,
             last_name: lastName,
             email: data.email,
+            birthday: data.birthday || '',
             instagram_handle: data.instagramHandle.replace('@', ''),
             tiktok_handle: data.tiktokHandle?.replace('@', '') || '',
             other_socials: {

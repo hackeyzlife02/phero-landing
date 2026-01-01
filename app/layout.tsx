@@ -28,6 +28,12 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   title: 'PHERO — Never Second-Guess Again',
   description: 'AI-powered personal styling that learns your taste.',
+  openGraph: {
+    title: 'PHERO — Never Second-Guess Again',
+    description: 'AI-powered personal styling that learns your taste.',
+    type: 'website',
+    siteName: 'PHERO',
+  },
 };
 
 export const viewport: Viewport = {

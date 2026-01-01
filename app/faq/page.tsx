@@ -56,7 +56,7 @@ export default function FAQPage() {
       <header className="px-6 md:px-12 py-5 md:py-6 border-b border-white/[0.06]">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-white/50 text-[13px] font-semibold tracking-[0.12em] transition-colors hover:text-white"
+          className="inline-flex items-center gap-2 text-white/50 text-[13px] font-body font-semibold tracking-[0.12em] transition-colors hover:text-white"
         >
           <ArrowLeft className="w-4 h-4" strokeWidth={2} />
           PHERO
@@ -90,7 +90,7 @@ export default function FAQPage() {
                   openIndex === index ? 'max-h-96 pb-6' : 'max-h-0'
                 }`}
               >
-                <p className="font-headline text-[15px] leading-[1.7] text-white/50">
+                <p className="font-body text-[15px] leading-[1.7] text-white/50">
                   {faq.answer}
                 </p>
               </div>
@@ -103,7 +103,7 @@ export default function FAQPage() {
           <h2 className="font-headline text-[15px] font-medium mb-3">
             Have more questions?
           </h2>
-          <p className="font-headline text-[15px] leading-[1.7] text-white/50">
+          <p className="font-body text-[15px] leading-[1.7] text-white/50">
             We&apos;re happy to help. Reach out anytime at{' '}
             <a
               href="mailto:contact@pheroapp.com"
