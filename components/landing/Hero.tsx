@@ -10,12 +10,12 @@ export function Hero() {
 
   return (
     <section
-      className="hero-section flex flex-col pt-[100px] sm:pt-[120px] md:pt-[140px] px-4 sm:px-7 hero-padding-bottom relative bg-gradient-brand"
+      className="hero-section flex flex-col pt-[80px] sm:pt-[100px] md:pt-[120px] px-4 sm:px-7 hero-padding-bottom relative bg-gradient-brand"
     >
       {/* Content */}
       <div className="text-center max-w-[700px] mx-auto flex-1 flex flex-col justify-center">
         {/* Badge */}
-        <div className="mb-8">
+        <div className="mb-5 sm:mb-6">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/90 text-[0.8rem] font-medium tracking-wide">
             <svg className="w-3.5 h-3.5 text-white/70" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
@@ -27,12 +27,12 @@ export function Hero() {
         </div>
 
         {/* Headline */}
-        <h1 className="font-headline text-[2.25rem] sm:text-[clamp(2.8rem,8vw,4.5rem)] font-bold leading-[0.95] tracking-[-0.03em] mb-6 sm:mb-5">
+        <h1 className="font-headline text-[1.875rem] sm:text-[clamp(2.25rem,6vw,3.5rem)] font-bold leading-[0.95] tracking-[-0.03em] mb-4 sm:mb-4">
           Nail the Dates<br /><em className="font-serif italic font-normal">You Already Have.</em>
         </h1>
 
         {/* Subheadline */}
-        <p className="text-[0.9375rem] sm:text-[clamp(1rem,2.5vw,1.1rem)] leading-[1.5] opacity-90 mb-8 sm:mb-7 max-w-[320px] sm:max-w-[380px] mx-auto">
+        <p className="text-[0.875rem] sm:text-[clamp(0.9375rem,2vw,1.0625rem)] leading-[1.5] opacity-90 mb-5 sm:mb-5 max-w-[300px] sm:max-w-[360px] mx-auto">
           Your personalized Style Pro to dial up your confidence before your next date.
         </p>
 

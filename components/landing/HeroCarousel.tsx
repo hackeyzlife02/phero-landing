@@ -104,10 +104,10 @@ function SessionDetailCard({ name, image, specialty }: {
         </div>
 
         {/* Name */}
-        <div className="font-headline font-bold text-[1rem] sm:text-[1.1rem] text-white mb-0.5 tracking-wide">{name}</div>
+        <div className="font-headline font-bold text-[1rem] sm:text-[1.1rem] text-white mb-0 tracking-wide">{name}</div>
 
         {/* Tagline */}
-        <div className="text-[0.65rem] sm:text-[0.7rem] text-[#737373] mb-3">{specialty}</div>
+        <div className="text-[0.55rem] sm:text-[0.6rem] text-[#737373] mb-2">{specialty}</div>
 
         {/* Ready to Join button */}
         <span className="inline-block px-3 py-[3px] bg-[#9A1B1B] rounded-full mb-4 text-[0.4rem] sm:text-[0.45rem] font-medium text-white uppercase tracking-[0.1em] leading-none">Ready to Join</span>
@@ -178,7 +178,7 @@ function ChatSessionCard({ name, image }: {
 
           {/* Centered profile and name */}
           <div className="flex flex-col items-center">
-            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/20 mb-1">
+            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/20">
               <Image
                 src={image}
                 alt={name}
@@ -187,7 +187,8 @@ function ChatSessionCard({ name, image }: {
                 className="w-full h-full object-cover"
               />
             </div>
-            <span className="font-headline text-[0.7rem] font-semibold text-white">{name}</span>
+            <span className="font-headline text-[0.7rem] font-semibold text-white leading-none mt-1.5">{name}</span>
+            <span className="text-[0.5rem] text-white/60 leading-none mt-0.5">Style Pro</span>
           </div>
 
           {/* Video button */}
@@ -200,22 +201,31 @@ function ChatSessionCard({ name, image }: {
         </div>
 
         {/* Session badge */}
-        <div className="text-center mb-2 -mt-1">
-          <span className="inline-block px-2 py-[3px] bg-black/25 rounded-full text-[0.4rem] font-medium tracking-wide uppercase">
-            Date Night Session
+        <div className="text-center pt-0 pb-3">
+          <span className="inline-block px-2.5 py-[4px] bg-black/25 rounded-full text-[0.45rem] font-medium tracking-wide">
+            Third Date · His Place
           </span>
         </div>
 
         {/* Messages */}
-        <div className="flex-1 flex flex-col gap-2 overflow-hidden">
-          <div className="self-start max-w-[85%] px-3 py-2 bg-black/30 rounded-[14px] rounded-bl-[4px]">
-            <p className="text-[0.6rem] sm:text-[0.65rem] text-white leading-snug">What&apos;s the vibe tonight?</p>
+        <div className="flex-1 flex flex-col gap-1.5 overflow-hidden">
+          <div className="self-end max-w-[90%] px-3 py-2 bg-white/95 rounded-[14px] rounded-br-[4px]">
+            <p className="text-[0.55rem] sm:text-[0.6rem] text-black leading-snug">He&apos;s cooking for me. I want to look effortless?</p>
           </div>
-          <div className="self-end max-w-[85%] px-3 py-2 bg-white/95 rounded-[14px] rounded-br-[4px]">
-            <p className="text-[0.6rem] sm:text-[0.65rem] text-black leading-snug">Rooftop bar, first date. Want to look effortless but put-together</p>
+          <div className="self-start max-w-[90%] px-3 py-2 bg-black/30 rounded-[14px] rounded-bl-[4px]">
+            <p className="text-[0.55rem] sm:text-[0.6rem] text-white leading-snug">You&apos;re not trying to impress anymore.</p>
           </div>
-          <div className="self-start max-w-[85%] px-3 py-2 bg-black/30 rounded-[14px] rounded-bl-[4px]">
-            <p className="text-[0.6rem] sm:text-[0.65rem] text-white leading-snug">Love that. Show me what you&apos;re working with!</p>
+          <div className="self-start max-w-[70%] px-3 py-2 bg-black/30 rounded-[14px] rounded-bl-[4px]">
+            <p className="text-[0.55rem] sm:text-[0.6rem] text-white leading-snug">You&apos;re just you.</p>
+          </div>
+          <div className="self-end max-w-[50%] px-3 py-2 bg-white/95 rounded-[14px] rounded-br-[4px]">
+            <p className="text-[0.55rem] sm:text-[0.6rem] text-black leading-snug">So... jeans?</p>
+          </div>
+          <div className="self-start max-w-[90%] px-3 py-2 bg-black/30 rounded-[14px] rounded-bl-[4px]">
+            <p className="text-[0.55rem] sm:text-[0.6rem] text-white leading-snug">The good jeans. Soft tee. Hair down.</p>
+          </div>
+          <div className="self-start max-w-[55%] px-3 py-2 bg-black/30 rounded-[14px] rounded-bl-[4px]">
+            <p className="text-[0.55rem] sm:text-[0.6rem] text-white leading-snug">You&apos;ve got this.</p>
           </div>
         </div>
 
@@ -239,7 +249,7 @@ function ChatSessionCard({ name, image }: {
 // Static cards for desktop, animated for mobile
 const staticCards = [
   { type: 'discovery', name: 'Alexa', age: 25, location: 'New York, NY', image: '/stylists/style-pro-alexa.jpeg', tags: ['vintage', 'jewelry maximalist', 'knee high boots'] },
-  { type: 'session', name: 'Alexa', image: '/stylists/style-pro-alexa.jpeg', specialty: 'Let\'s make you unforgettable' },
+  { type: 'session', name: 'Alexa', image: '/stylists/style-pro-alexa.jpeg', specialty: 'Style Pro' },
   { type: 'chat', name: 'Alexa', image: '/stylists/style-pro-alexa.jpeg' },
 ];
 
@@ -247,7 +257,7 @@ const staticCards = [
 const mobileCards = [
   ...staticCards,
   { type: 'discovery', name: 'Alexa', age: 25, location: 'New York, NY', image: '/stylists/style-pro-alexa.jpeg', tags: ['vintage', 'jewelry maximalist', 'knee high boots'] },
-  { type: 'session', name: 'Alexa', image: '/stylists/style-pro-alexa.jpeg', specialty: 'Let\'s make you unforgettable' },
+  { type: 'session', name: 'Alexa', image: '/stylists/style-pro-alexa.jpeg', specialty: 'Style Pro' },
   { type: 'chat', name: 'Alexa', image: '/stylists/style-pro-alexa.jpeg' },
 ];
 
@@ -287,7 +297,7 @@ export function HeroCarousel() {
   const duplicatedMobileCards = [...mobileCards, ...mobileCards];
 
   return (
-    <div className="absolute bottom-0 left-0 right-0 w-screen overflow-hidden h-[320px] sm:h-[280px] md:h-[280px]">
+    <div className="absolute bottom-0 left-0 right-0 w-screen overflow-hidden h-[380px] sm:h-[340px] md:h-[340px]">
       {/* Desktop: Static 3 cards centered, cropped at ~50% */}
       <div className="hidden md:flex justify-center gap-6 px-8 pt-4">
         {staticCards.map((card, index) => renderCard(card, index))}

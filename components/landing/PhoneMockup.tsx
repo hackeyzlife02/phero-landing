@@ -123,17 +123,18 @@ export function PhoneMockup() {
           </div>
 
           {/* Center - Avatar + Name */}
-          <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
+          <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
             <div className="w-[22px] h-[22px] sm:w-[36px] sm:h-[36px] md:w-[40px] md:h-[40px] rounded-full overflow-hidden">
               <Image
-                src="/stylists/style-pro-zoe.jpeg"
-                alt="Zoe"
+                src="/stylists/style-pro-alexa.jpeg"
+                alt="Alexa"
                 width={40}
                 height={40}
                 className="w-full h-full object-cover"
               />
             </div>
-            <span className="font-semibold text-[0.5rem] sm:text-[0.65rem] md:text-[0.72rem] leading-none">Zoe</span>
+            <span className="font-semibold text-[0.5rem] sm:text-[0.65rem] md:text-[0.72rem] leading-none mt-[3px] sm:mt-1.5 md:mt-2">Alexa</span>
+            <span className="text-[0.35rem] sm:text-[0.45rem] md:text-[0.5rem] text-white/60 leading-none mt-[1px] sm:mt-0.5">Style Pro</span>
           </div>
 
           {/* Video button */}
@@ -146,7 +147,7 @@ export function PhoneMockup() {
         </div>
 
         {/* Session Badge */}
-        <div className="text-center py-1 sm:py-2">
+        <div className="text-center pt-[6px] sm:pt-3 md:pt-4 pb-1 sm:pb-2">
           <span className="inline-block px-2 sm:px-2.5 py-0.5 sm:py-1 bg-black/25 rounded-full text-[0.4rem] sm:text-[0.5rem] md:text-[0.55rem] font-semibold tracking-[0.05em]">
             {conversations[currentConvo].badge}
           </span>

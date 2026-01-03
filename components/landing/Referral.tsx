@@ -27,7 +27,7 @@ export function Referral() {
 
   return (
     <section className="bg-gradient-brand py-16 sm:py-20 px-4 sm:px-7">
-      <div className="max-w-[500px] mx-auto text-center">
+      <div className="max-w-[540px] mx-auto text-center">
         <p className="font-headline text-[clamp(1.2rem,2.5vw,1.5rem)] leading-snug mb-6">
           Know someone who spirals before every date?
         </p>
