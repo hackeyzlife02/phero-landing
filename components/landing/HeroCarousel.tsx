@@ -406,7 +406,7 @@ export function HeroCarousel() {
 
   return (
     <div className="absolute bottom-0 left-0 right-0 w-screen overflow-hidden h-[380px] sm:h-[340px] md:h-[340px]">
-      {/* Desktop: Static 3 cards centered, cropped at ~50% */}
+      {/* Desktop: Static 3 cards centered */}
       <div className="hidden md:flex justify-center gap-6 px-8 pt-4">
         {staticCards.map((card, index) => renderCard(card, index))}
       </div>
@@ -425,7 +425,6 @@ export function HeroCarousel() {
           style={{
             animation: scrollWidth ? `carousel-scroll-px 20s linear infinite` : 'none',
             willChange: 'transform',
-            // CSS custom property for exact pixel-based animation
             ['--scroll-width' as string]: `${scrollWidth}px`,
           }}
         >

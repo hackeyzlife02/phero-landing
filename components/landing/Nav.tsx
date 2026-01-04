@@ -18,7 +18,7 @@ export function Nav() {
   return (
     <nav
       className={`
-        fixed top-[31px] sm:top-[33px] left-0 right-0 z-[1000]
+        fixed top-[28px] sm:top-[30px] left-0 right-0 z-[1000]
         px-4 sm:px-7 py-4
         flex justify-between items-center
         transition-all duration-300 ease-out
