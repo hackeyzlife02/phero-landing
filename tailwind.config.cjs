@@ -57,7 +57,7 @@ module.exports = {
         },
         'carousel-scroll': {
           '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(-100%)' },
         },
         'typing-bounce': {
           '0%, 60%, 100%': { transform: 'translateY(0)', opacity: '0.4' },

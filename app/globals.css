@@ -139,10 +139,22 @@ html, body {
   scrollbar-width: none;
 }
 
-/* Carousel infinite scroll */
+/* Carousel infinite scroll (percentage-based - legacy) */
 @keyframes carousel-scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+/* Carousel infinite scroll (pixel-based for seamless loop) */
+@keyframes carousel-scroll-px {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(var(--scroll-width) * -1)); }
+}
+
+/* Marquee infinite scroll (pixel-based for seamless loop) */
+@keyframes marquee-px {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(var(--scroll-width) * -1)); }
 }
 
 /* Typing indicator bounce */
@@ -199,4 +211,9 @@ html.ios-safari .hero-section {
   .animate-marquee {
     animation-duration: 12s;
   }
+}
+
+/* Custom letter-spacing for mockup alignment with sos-react app */
+.tracking-negative {
+  letter-spacing: -0.2px;
 }
