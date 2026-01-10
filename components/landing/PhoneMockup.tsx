@@ -192,12 +192,11 @@ export function PhoneMockup() {
           <div className="w-[14px] h-[14px] sm:w-[20px] sm:h-[20px] md:w-[24px] md:h-[24px] bg-white/20 rounded-full flex items-center justify-center text-[0.6rem] sm:text-[0.8rem] md:text-[1rem] font-light">
             +
           </div>
-          <div className="flex-1 bg-black/20 border border-white/20 rounded-[10px] sm:rounded-[12px] md:rounded-[14px] px-2 sm:px-3 py-1 sm:py-1.5 text-[0.45rem] sm:text-[0.55rem] md:text-[0.65rem] opacity-60">
-            Message
-          </div>
-          <div className="w-[14px] h-[14px] sm:w-[20px] sm:h-[20px] md:w-[24px] md:h-[24px] flex items-center justify-center opacity-70">
-            <svg className="w-2 sm:w-3 md:w-3.5 h-2 sm:h-3 md:h-3.5" viewBox="0 0 24 24" fill="white">
-              <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.91-3c-.49 0-.9.36-.98.85C16.52 14.2 14.47 16 12 16s-4.52-1.8-4.93-4.15c-.08-.49-.49-.85-.98-.85-.61 0-1.09.54-1 1.14.49 3 2.89 5.35 5.91 5.78V20c0 .55.45 1 1 1s1-.45 1-1v-2.08c3.02-.43 5.42-2.78 5.91-5.78.1-.6-.39-1.14-1-1.14z" />
+          <div className="flex-1 bg-black/20 border border-white/20 rounded-[10px] sm:rounded-[12px] md:rounded-[14px] px-2 sm:px-3 py-1 sm:py-1.5 flex items-center justify-between">
+            <span className="text-[0.45rem] sm:text-[0.55rem] md:text-[0.65rem] text-white/60">Message</span>
+            <svg className="w-2 sm:w-3 md:w-3.5 h-2 sm:h-3 md:h-3.5 text-white/60" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z" />
+              <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z" />
             </svg>
           </div>
         </div>

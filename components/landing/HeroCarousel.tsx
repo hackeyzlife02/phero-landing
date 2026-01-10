@@ -141,19 +141,22 @@ function SessionDetailCard({ name, image, specialty }: {
 
       {/* Content */}
       <div className="px-3 pb-3 flex flex-col items-center">
-        {/* Profile with red ring (Ready to Join state) - matches AnimatedProfileRing */}
+        {/* Profile with gradient ring (Ready to Join state) - matches AnimatedProfileRing */}
         <div className="relative mb-2">
-          {/* Outer red ring */}
-          <div className="w-[80px] h-[80px] sm:w-[88px] sm:h-[88px] rounded-full border-2 border-[#9A1B1B] flex items-center justify-center">
-            {/* Inner photo wrapper with subtle white border */}
-            <div className="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] rounded-full border border-white/10 overflow-hidden bg-[#1A1A1A]">
-              <Image
-                src={image}
-                alt={name}
-                width={80}
-                height={80}
-                className="w-full h-full object-cover"
-              />
+          {/* Outer gradient ring */}
+          <div className="w-[80px] h-[80px] sm:w-[88px] sm:h-[88px] rounded-full bg-gradient-to-b from-[#9A1B1B] to-[#7B2D9E] p-[2px]">
+            {/* Black gap between ring and photo */}
+            <div className="w-full h-full rounded-full bg-black p-[3px]">
+              {/* Inner photo wrapper */}
+              <div className="w-full h-full rounded-full overflow-hidden">
+                <Image
+                  src={image}
+                  alt={name}
+                  width={80}
+                  height={80}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -212,13 +215,9 @@ function SessionDetailCard({ name, image, specialty }: {
                 <path d="M20 8l-5 3.5 5 3.5V8z" />
               </svg>
             </div>
-            <div className="flex-1">
+            <div>
               <div className="text-[0.4rem] text-[#737373] uppercase tracking-wide font-medium">Session Type</div>
               <div className="text-[0.55rem] text-white font-medium">Video • 30 min</div>
-            </div>
-            <div className="text-right">
-              <div className="text-[0.4rem] text-[#737373] uppercase tracking-wide font-medium">Paid</div>
-              <div className="text-[0.6rem] text-[#9A1B1B] font-bold">$39</div>
             </div>
           </div>
         </div>
@@ -300,12 +299,11 @@ function ChatSessionCard({ name, image }: {
         {/* Input bar */}
         <div className="flex gap-2 items-center mt-3">
           <div className="w-7 h-7 bg-white/20 rounded-full flex items-center justify-center text-[0.8rem] text-white">+</div>
-          <div className="flex-1 bg-black/20 border border-white/20 rounded-full px-3 py-2 text-[0.55rem] text-white/60">
-            Message
-          </div>
-          <div className="w-7 h-7 flex items-center justify-center">
-            <svg className="w-4 h-4 text-white/70" viewBox="0 0 24 24" fill="currentColor">
+          <div className="flex-1 bg-black/20 border border-white/20 rounded-full px-3 py-2 flex items-center justify-between">
+            <span className="text-[0.55rem] text-white/60">Message</span>
+            <svg className="w-3.5 h-3.5 text-white/60" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z" />
+              <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z" />
             </svg>
           </div>
         </div>
@@ -322,8 +320,8 @@ const staticCards = [
     age: 25,
     location: 'New York, NY',
     image: '/stylists/style-pro-alexa.jpeg',
-    tags: ['vintage', 'jewelry maximalist', 'knee high boots'],
-    fashionSpecialty: { dropdown: 'Elevated Basics', details: 'Quality pieces that work harder and feel luxe.' },
+    tags: ['Edgy & Alternative', 'Bohemian', 'Petite Styling'],
+    fashionSpecialty: { dropdown: 'Wardrobe building & curation', details: 'Intentional wardrobes for nights out.' },
     fashionApproach: { dropdown: 'Curated Capsules', details: 'Less items, more outfits, zero decision fatigue.' },
   },
   { type: 'session', name: 'Alexa', image: '/stylists/style-pro-alexa.jpeg', sessionSpecialty: 'Style Pro' },
@@ -339,8 +337,8 @@ const mobileCards = [
     age: 25,
     location: 'New York, NY',
     image: '/stylists/style-pro-alexa.jpeg',
-    tags: ['vintage', 'jewelry maximalist', 'knee high boots'],
-    fashionSpecialty: { dropdown: 'Elevated Basics', details: 'Quality pieces that work harder and feel luxe.' },
+    tags: ['Edgy & Alternative', 'Bohemian'],
+    fashionSpecialty: { dropdown: 'Wardrobe building & curation', details: 'Intentional wardrobes for nights out.' },
     fashionApproach: { dropdown: 'Curated Capsules', details: 'Less items, more outfits, zero decision fatigue.' },
   },
   { type: 'session', name: 'Alexa', image: '/stylists/style-pro-alexa.jpeg', sessionSpecialty: 'Style Pro' },
